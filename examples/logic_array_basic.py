@@ -1,13 +1,21 @@
+import sys
+import os
+
+# Add src to path if running directly
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from engine import PlacementEngine
 from models import PlacementParams
 
 def main():
+    print("--- AutoPlacer: Basic Logic Cluster Example ---")
     # 1. Customize parameters
     params = PlacementParams(
         chip_w=1000, 
         chip_h=1000, 
         num_partitions=2, 
-        anneal_iters=5000
+        anneal_iters=5000,
+        visualize=True
     )
 
     # 2. Define a simple netlist
@@ -28,11 +36,13 @@ def main():
     
     metrics = engine.run()
     
-    # 4. Access results
-    print(f"Final Wirelength: {metrics['wirelength_total']}")
+    # 4. Save results
+    results_dir = os.path.join("results", "logic_array_basic_placed")
+    engine.save_results(results_dir, "logic_array_basic")
+    engine.visualize(metrics, save_dir=results_dir)
     
-    # 5. Optional visualization
-    # engine.visualize(metrics)
+    print(f"\nFinal Wirelength: {metrics['wirelength_total']:.2f}")
+    print(f"Results saved to: {results_dir}")
 
 if __name__ == "__main__":
     main()

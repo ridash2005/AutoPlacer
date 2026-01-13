@@ -9,7 +9,7 @@
 
 **A high-performance automated placement optimization engine for VLSI design.**
 
-[Quick Start](#-quick-start) • [Features](#-key-features) • [Architecture](#-architecture) • [Usage](#-usage) • [Contributing](#-contributing)
+[Quick Start](#-quick-start-how-to-run) • [Features](#-key-features) • [Architecture](#-architecture) • [Command Line](#-command-line-options) • [Contributing](#-contributing)
 
 </div>
 
@@ -33,16 +33,13 @@ AutoPlacer solves the complex problem of **VLSI Cell Placement** by providing an
 - 📊 **Rich Visualization**: Real-time layout and congestion heatmap generation.
 - ⚙️ **Multi-Objective Cost**: Balanced optimization of wirelength, density, and blockage penalties.
 
-<table>
-  <tr>
-    <td align="center"><b>Final Placement</b></td>
-    <td align="center"><b>Congestion Map</b></td>
-  </tr>
-  <tr>
-    <td><img src="Placement_layout.png" width="400"></td>
-    <td><img src="Congestion_map.png" width="400"></td>
-  </tr>
-</table>
+### 🖼️ Example Showcase Gallery
+
+| Architecture | Placement Layout | Congestion Heatmap |
+| :--- | :---: | :---: |
+| **Basic Logic Cluster** | ![Placement](results/logic_array_basic_placed/placement.png) | ![Congestion](results/logic_array_basic_placed/congestion.png) |
+| **AI Accelerator (Systolic)** | ![Placement](results/ai_accelerator_grid_placed/placement.png) | ![Congestion](results/ai_accelerator_grid_placed/congestion.png) |
+| **Modern SoC (Hub & Spoke)** | ![Placement](results/soc_peripheral_hub_placed/placement.png) | ![Congestion](results/soc_peripheral_hub_placed/congestion.png) |
 
 ---
 
@@ -157,7 +154,7 @@ AutoPlacer acts as a standalone EDA tool for placement legalization and optimiza
   - `utils/`: Data parsing and visualization helpers.
   - `engine.py`: The `PlacementEngine` class.
 - `examples/`: Sample scripts demonstrating library usage.
-  - `custom_placement.py`: Basic API usage.
+  - `logic_array_basic.py`: Primitive 3-cell cluster with fixed PAD.
   - `ai_accelerator_grid.py`: 10x10 Systolic Array mesh architecture.
   - `soc_peripheral_hub.py`: Multi-core SoC with central NoC and IO pads.
 - `setup.py`: Package installation script.
