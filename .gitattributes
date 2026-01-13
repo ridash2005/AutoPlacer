@@ -1,2 +1,12 @@
-# Auto detect text files and perform LF normalization
+# Git Attributes for AutoPlacer
 * text=auto
+
+# Ensure shell scripts have LF endings
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+
+# Denote binary files
+*.png binary
+*.jpg binary
+*.gif binary
